@@ -13,13 +13,13 @@ namespace DevProjectAPI.Infrastructure.Entities
         public string? IdUser { get; set; }
 
         [BsonElement("user")]
-        public string? UserName { get; set; }
+        public string UserName { get; set; }
 
         [BsonElement("email")]
         public string? Email { get; set; }
 
         [BsonElement("password")]
-        public string? Password { get; set; }
+        public string Password { get; set; }
         #endregion
     }
 }

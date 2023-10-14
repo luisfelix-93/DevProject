@@ -35,6 +35,18 @@ namespace DevProjectAPI.Infrastructure.Repositories
         public async Task CreateUser(User pUser) =>
             await this.GetMongoCollection().InsertOneAsync(pUser);
 
+        public  bool AuthenticateUser(string pPassword)
+        {
+            bool isAuth = false;
+            User userAuth = new User();
+
+            userAuth = this.GetMongoCollection().Find(x => x.Password == pPassword).FirstOrDefault();
+            if (userAuth != null)
+                isAuth = true;
+
+            return isAuth;
+        }
+
         #endregion
     }
 }
